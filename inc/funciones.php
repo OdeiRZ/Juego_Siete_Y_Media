@@ -55,3 +55,26 @@ function barajarCartas($baraja)
 
     return $cartas;
 }
+
+function jugar($jugador, $baraja)
+{
+    $puntos = 0;
+    $cartasUsadasJg = array();
+
+    do {
+        $puntos = sacarCarta($jugador, $baraja, $cartasUsadasJg, $puntos, true);
+        if ($puntos < 7.5) {
+            do {
+                echo "\n¿Desea Plantarse o Continuar (p/c)?: ";
+                $entrada = strtolower(trim(fgets(STDIN)));
+            } while ($entrada != 'p' && $entrada != 'c');
+        } else {
+            $entrada = 'p';
+        }
+    } while ($entrada == 'c' && $puntos <= 7.5);
+
+    $aux = ($puntos <= 7.5 ? " se planta" : " se pasa del tope");
+    echo "\n" . $jugador . $aux . "\n";
+
+    return $puntos;
+}
