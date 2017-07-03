@@ -93,3 +93,22 @@ function jugarIA($jugador, $baraja, $puntosJg)
 
     return $puntos;
 }
+
+function sacarCarta($jugador, &$baraja, &$cartasUsadas, $puntos, $sw)
+{
+    $cartaAzar = array_rand($baraja);
+    $puntosCarta = $baraja[$cartaAzar];
+    array_push($cartasUsadas, $cartaAzar);
+    unset($baraja[$cartaAzar]);
+
+    $puntos += $puntosCarta;
+    $aux = ($puntos <= 1 ? " punto" : " puntos");
+    $aux2 = ($sw ? "s" : "");
+    /*foreach ($baraja as $key => $item) {
+        echo $item . " -> (" . $key . ")" . "\n";
+    }*/
+    echo "\n" . $jugador . " pide carta\n";
+    echo "\n\tSaca" . $aux2 . " el " . $cartaAzar . ". LLeva" . $aux2 . " " . $puntos . $aux . "\n";
+
+    return $puntos;
+}
