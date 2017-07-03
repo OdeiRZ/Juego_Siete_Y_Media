@@ -8,6 +8,7 @@ sin pasarse del límite y así ganar la partida.
 La aplicación ha sido desarrollada para ser ejecutada interactivamente mediante línea de comandos, por lo que,
 para acceder a su funcionalidad, deberá ser lanzada desde un terminal o consola de comandos.
 
+Para facilitar el desarrollo se proporciona un entorno [Vagrant] con todas las dependencias ya instaladas.
 
 ## Requisitos
 - PHP 5.0 o superior
