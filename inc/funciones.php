@@ -78,3 +78,18 @@ function jugar($jugador, $baraja)
 
     return $puntos;
 }
+
+function jugarIA($jugador, $baraja, $puntosJg)
+{
+    $puntos = 0;
+    $cartasUsadasIA = array();
+
+    do {
+        $puntos = sacarCarta($jugador, $baraja, $cartasUsadasIA, $puntos, false);
+    } while ($puntosJg <= 7.5 && $puntos < $puntosJg);
+
+    $aux = ($puntos <= 7.5 ? " se planta" : " se pasa del tope");
+    echo "\n" . $jugador . $aux . "\n";
+
+    return $puntos;
+}
