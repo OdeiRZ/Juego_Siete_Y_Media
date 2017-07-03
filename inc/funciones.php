@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Obtiene el nombre del jugador leyendo una línea del STDIN y lo devuelve como cadena.
+ *
+ * @return string
+ */
 function obtenerNombre()
 {
     do {
@@ -10,6 +15,13 @@ function obtenerNombre()
     return $nombre;
 }
 
+/**
+ * Carga las cartas en un array y posibilita la opción de barajarlas (mezclarlas).
+ *
+ * @param  string  $jugador cadena con el nombre del jugador
+ * @param  boolean $sw      booleano usado para preguntar o no al usuario si desea barajar las cartas
+ * @return array
+ */
 function cargarBaraja($jugador, $sw)
 {
     $baraja = array(
@@ -44,6 +56,12 @@ function cargarBaraja($jugador, $sw)
     return $cartas;
 }
 
+/**
+ * Mezcla un array de cartas para simular un mayor efecto de aleatoriedad durante el juego.
+ *
+ * @param  array $baraja array con las cartas a mezclar
+ * @return array
+ */
 function barajarCartas($baraja)
 {
     $cartas = array();
@@ -56,6 +74,16 @@ function barajarCartas($baraja)
     return $cartas;
 }
 
+/**
+ * Simula la lógica de juego para el jugador, permitiéndole decidir si se planta o continúa tras sacar una carta,
+ * si sobrepasa el límite o alcanza el máximo posible, el programa lo detecta y evita preguntas innecesarias,
+ * devolviendo al final la puntuación obtenida. Almacenamos también las cartas usadas en un array, aunque por motivos
+ * funcionales no hagamos uso de ellas.
+ *
+ * @param  string $jugador cadena con el nombre del jugador
+ * @param  array  $baraja  array con las cartas a utilizar
+ * @return float
+ */
 function jugar($jugador, $baraja)
 {
     $puntos = 0;
@@ -79,6 +107,16 @@ function jugar($jugador, $baraja)
     return $puntos;
 }
 
+/**
+ * Simula la lógica de juego para la IA, la cuál intentará sobrepasar al jugador, siempre y cuando éste no haya
+ * superado el límite, en cuyo caso se aceptará la apuesta mínima y se devolverá la puntuación obtenida.
+ * Volvemos a almacenar las cartas utilizadas en un array, a pesar de no hacer uso de las mismas.
+ *
+ * @param  string $jugador  cadena con el nombre del jugador
+ * @param  array  $baraja   array con las cartas a utilizar
+ * @param  float  $puntosJg puntuación del jugador a batir
+ * @return float
+ */
 function jugarIA($jugador, $baraja, $puntosJg)
 {
     $puntos = 0;
@@ -94,6 +132,16 @@ function jugarIA($jugador, $baraja, $puntosJg)
     return $puntos;
 }
 
+/**
+ *
+ *
+ * @param  string $jugador      cadena con el nombre del jugador
+ * @param  array  $baraja       array con las cartas a utilizar
+ * @param  array  $cartasUsadas array con las cartas utilizadas
+ * @param  float  $puntos       puntuación del jugador actual
+ * @param  boolean $sw          booleano usado para preguntar o no al usuario si desea barajar las cartas
+ * @return float
+ */
 function sacarCarta($jugador, &$baraja, &$cartasUsadas, $puntos, $sw)
 {
     $cartaAzar = array_rand($baraja);
@@ -113,6 +161,15 @@ function sacarCarta($jugador, &$baraja, &$cartasUsadas, $puntos, $sw)
     return $puntos;
 }
 
+/**
+ * Comprueba el ganador del juego comparando las puntuaciones finales del jugador y de la banca, devolviendo una
+ * cadena formateada con el mensaje del ganador de la partida.
+ *
+ * @param  float  $puntosJg puntuación total del jugador
+ * @param  float  $puntosIA puntuación total de la IA
+ * @param  string $jugador  cadena con el nombre del jugador
+ * @return string
+ */
 function comprobarGanador($puntosJg, $puntosIA, $jugador)
 {
     if (($puntosJg <= 7.5 && $puntosJg > $puntosIA) ||
