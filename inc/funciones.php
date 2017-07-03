@@ -112,3 +112,15 @@ function sacarCarta($jugador, &$baraja, &$cartasUsadas, $puntos, $sw)
 
     return $puntos;
 }
+
+function comprobarGanador($puntosJg, $puntosIA, $jugador)
+{
+    if (($puntosJg <= 7.5 && $puntosJg > $puntosIA) ||
+        ($puntosJg <= 7.5 && $puntosIA > 7.5)) {
+        $ganador = $jugador;
+    } else {
+        $ganador = "La Banca";
+    }
+
+    return "\n" . $ganador . " gana la partida\n";
+}
