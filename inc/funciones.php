@@ -43,3 +43,15 @@ function cargarBaraja($jugador, $sw)
 
     return $cartas;
 }
+
+function barajarCartas($baraja)
+{
+    $cartas = array();
+    $puntos = array_keys($baraja);
+    shuffle($puntos);
+    foreach ($puntos AS $puntosBarajados) {
+        $cartas[$puntosBarajados] = $baraja[$puntosBarajados];
+    }
+
+    return $cartas;
+}
