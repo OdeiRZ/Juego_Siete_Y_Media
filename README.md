@@ -1,4 +1,4 @@
-Juego Siete y Media 0.9
+Juego Siete y Media 0.91
 ================================
 
 Programa desarrollado en PHP que simula la lógica del clásico juego de cartas de las siete y media, permitiendo al
