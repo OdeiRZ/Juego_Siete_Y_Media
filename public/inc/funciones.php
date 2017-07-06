@@ -133,13 +133,15 @@ function jugarIA($jugador, $baraja, $puntosJg)
 }
 
 /**
- *
+ * Selecciona y extrae una carta de la baraja recibida, capturando su valor y nombre, y eliminando su referencia para
+ * evitar que pueda volver a ser seleccionada de nuevo, posteriormente suma el valor seleccionado al total, y muestra
+ * por pantalla un mensaje con la operación realizada.
  *
  * @param  string $jugador      cadena con el nombre del jugador
  * @param  array  $baraja       array con las cartas a utilizar
  * @param  array  $cartasUsadas array con las cartas utilizadas
  * @param  float  $puntos       puntuación del jugador actual
- * @param  boolean $sw          booleano usado para preguntar o no al usuario si desea barajar las cartas
+ * @param  boolean $sw          booleano usado para mostrar mensajes personalizados por pantalla
  * @return float
  */
 function sacarCarta($jugador, &$baraja, &$cartasUsadas, $puntos, $sw)
