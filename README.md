@@ -5,7 +5,7 @@ Programa desarrollado en PHP que simula la lógica del clásico juego de cartas 
 jugador sacar cartas aleatoriamente mientras compite con la IA de la máquina para obtener una puntuación mayor 
 sin pasarse del límite y así ganar la partida.
 
-La aplicación ha sido desarrollada para ser ejecutada interactivamente mediante línea de comandos, por lo que,
+La aplicación ha sido desarrollada para ser ejecutada de forma interactiva mediante línea de comandos, por lo que
 para acceder a su funcionalidad, deberá ser lanzada desde un terminal o consola.
 
 Para facilitar el desarrollo se proporciona un entorno [Vagrant] con todas las dependencias ya instaladas.
